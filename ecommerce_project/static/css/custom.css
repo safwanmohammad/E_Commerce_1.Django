@@ -1,0 +1,204 @@
+body{
+        font-family: 'Roboto Condensed', sans-serif;
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    }
+/***navbar***/
+.drop_trans{
+    border: aliceblue;
+    background: none;
+}
+
+.nav-link{
+    color: antiquewhite;
+}
+.nav-link:hover{
+    color: antiquewhite;
+    font-size:18px;
+}
+.nav-bg{
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,0.3115371148459384) 0%, rgba(148,187,233,0.3647584033613446) 100%);
+}
+@media only screen and (max-width: 993px) {
+    .form-control {
+        margin-top: 20px;
+    }
+
+}
+
+.nav-item{
+        letter-spacing:.3rem;
+        font-size:14px;
+        text-transform:uppercase;
+    }
+.dropdown-item{
+        letter-spacing:.2rem;
+        font-size:14px;
+        text-transform:uppercase;
+    }
+
+/***footer***/
+
+.my_footer p{
+        padding-top:50px;
+        font-size:17px;
+        color: white;
+    }
+.footer_text{
+            letter-spacing: .2rem;
+    }
+
+
+/***category***/
+
+.card_bd{
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    }
+.card_bdd{
+        border-color: #FBEEE6;
+
+    }
+.cat_det{
+        letter-spacing: .2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: gray;
+    }
+.cart_t{
+          transition: transform .2s; /* Animation */
+    }
+.cart_t:hover{
+          transform: scale(1.3);
+    }
+.cat_dett{
+          font-size: 25px;
+    }
+
+/*** product page ***/
+.pro_d{
+    letter-spacing: .2rem;
+
+    text-transform: uppercase;
+    font-size: 20px;
+    color:gray;
+
+}
+.pro_d .pro_dd{
+        color:gray;
+        text-decoration: none;
+}
+.pro_ddd{
+        font-size:35px;
+        color:gray;
+        text-transform: uppercase;
+        }
+.prood{
+        text-align:center;
+        }
+
+/*** search.html ***/
+.my_search_text{
+        padding-top:20px;
+        }
+
+/*** cart.html ***/
+.my_title{
+        letter-spacing: .2rem;
+        }
+.my_custom_table{
+        min-width:400px;
+        font-size:14px;
+        }
+.my_custom_thead{
+        font-weight:normal;
+        text-transform:uppercase;
+        letter-spacing:.2em;
+        background: rgb(238,174,202);
+        }
+.custom_a{
+        text-decoration:none;
+        }
+.custom_icon{
+        text-decoration:none;
+        color:#ff0000ab;
+        }
+.custom_icon_plus{
+        text-decoration:none;
+        color: aqua;
+        }
+.custom_icon_min{
+        text-decoration:none;
+        color: yellow;
+        }
+td{
+    vertical-align: middle;
+}
+
+/* trending-section */
+.trending_section .tab_container .t-link-box {
+    margin: 65px 0;
+    color: #24d278;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  
+  .trending_section .tab_container .t-link-box h5 {
+    margin: 0;
+  }
+  
+  .trending_section .tab_container .t-link-box hr {
+    background-color: #24d278;
+    width: 60px;
+    height: 1.5px;
+    border: none;
+    margin: 0 65px 0 5px;
+  }
+  
+  .trending_section .tab_container .t-link-box .t-name {
+    color: #252525;
+  }
+  
+  .trending_section .tab_container .t-link-box:hover {
+    cursor: pointer;
+  }
+  
+  .trending_section .tab_container .t-link-box[aria-expanded="true"] .t-name {
+    color: #24d278;
+  }
+  
+  .trending_section .img_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .trending_section .img_container .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .trending_section .img_container .box .img-box {
+    margin: 15px;
+  }
+  
+  .trending_section .img_container .box .img-box img {
+    width: 100%;
+  }
+  
+  .trending_section .img_container .box.b-1 {
+    padding-top: 35px;
+  }

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{{ product.description|truncatewords:155 }}
+{% endblock %}
+{% block title %}
+{% if category %}
+{{product.name}} - Ladies Camp
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row pt-5">
+    <div class="mx-auto">
+        <p class="pro_d">
+            <a class="pro_dd" href="{% url 'shop:allprodcat' %}">Home</a>&nbsp;<span class="text-dark">|</span><a class="pro_dd" href="{{product.category.get_url}}">
+            {{product.category}}</a>&nbsp;<span class="text-dark">|</span>
+            {{product.name}}
+        </p>
+    </div>
+</div>
+</div>
+<br>
+<div class="container p-5">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="img-fluid" style="">
+                <img alt="{{product.name}}" src="{{product.image.url}}" style="height: 300px;width: 300px;}">
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-4">
+            <div class="prood">
+                <h1 class="pro_ddd">{{product.name}}</h1>
+                <p>${{product.price}}</p>
+                <p class="pro_d">Product Description</p>
+                <p>{{product.description}}</p>
+                {% if product.stock <= 0 %}
+                <p><b>Out Of Stock</b></p>
+                {% else %}
+                <a class="btn btn-dark cart_t" href="{% url 'cart:add_cart' product.id %}">ADD TO CART</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

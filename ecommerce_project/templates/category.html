@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{% if category %}
+{{ category.description|truncatewords:155 }}
+{% else %}
+welcome to ladies camp here,you can find exclusive ladies and kids wear
+{% endif %}
+{% endblock %}
+{% block title %}
+{% if category %}
+{{category.name}} - Ladies Camp
+{% else % }
+see our new collections - Ladies Camp
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+
+<div class="p-5">
+    <div>
+        <p class="p_link ">
+            <a class="cat_det" href="{% url 'shop:allprodcat' %}">
+                <b class="cat_det">Our Product Collections</b>
+            </a>
+        </p>
+    </div>
+</div>
+{% endif %}
+<div class="container-fluid">
+    <div class="row">
+        {% if category %}
+        <img alt="{{category.name}}" src="{{category.image.url}}" style=" height: 600px;">
+    </div>
+</div>
+<br>
+<div class="text-center p-5 ">
+    <h1 class="cat_det">{{category.name}}</h1>
+    <p class="pt-3 cat_dett">{{category.description}}</p>
+</div>
+{% else %}
+<div class="container-fluid mt-5">
+    <img alt="our products" src="{% static 'img/fashion1.png' %}" style="width: 100%;">
+</div>
+<br>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="lead">
+
+            <h1 class="d-flex justify-content-center cat_det ">Our Product Collections</h1>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <img alt="our products" src="{% static 'img/Brown.png' %}" style="width: 100%;">
+                </div>
+                <p class="  text-center col-md-6" style="color: gray;">
+                   <i>"Our ladies' fashion collection is designed for the modern, confident woman who embraces style and
+                    elegance. From casual wear to formal attire, our range offers a diverse selection of clothing and
+                    accessories to suit every occasion.
+                    From cute and colorful dresses to comfortable tops and bottoms, our kids' collection offers a wide
+                    variety of options for boys and girls of all ages. We prioritize soft and breathable fabrics to
+                    ensure that your children can move freely and enjoy their activities while looking stylish"</i>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="container-fluid mt-5">
+    <div class="row mx-auto">
+        <div class="col-md-12">
+            <h2 class="d-flex justify-content-center cat_det">Collections</h2>
+        </div>
+        {% for product in products.object_list %}
+        <div class=" col-sm-12 col-md-6 col-lg-4 col-xl-3  mb-5">
+            <div class="card-group ">
+                <div class="card card_bd text-white mt-5">
+                    <div class="card-body  card_bd text-dark">
+                        <a href="{{product.get_url}}"><img alt="" class="card card_bdd" src="{{product.image.url}}"
+                                                           style=" height: 230px;    width: -webkit-fill-available;"></a>
+                        <div class=" text-center ">
+                            <div class="card-title"><h4 style="color: gray;">{{product.name}}</a></h4></div>
+                            <div class="">
+                                <p class="">{{product.price}}$</p>
+                                <a class="btn btn-dark cart_t" href="{% url 'cart:add_cart' product.id %}">ADD TO
+                                    CART</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mx-auto">
+        {% if products.paginator.num_pages > 1 %}
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+            <a class="btn btn-dark btn-sm {% if products.number == pg %} active {% endif %}" href="?page={{pg}}">
+                {{pg}}
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <hr>
+    <br>
+</div>
+<div class="container-fluid mt-5">
+     <div class="row mx-auto">
+         
+     </div>
+</div>
+{% endblock %}

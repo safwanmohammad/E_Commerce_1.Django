@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+welcome to ladies camp here,you can search exclusive ladies and kids wear
+{% endblock %}
+{% block title %}
+search
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'search_app:SearchResult' %}" class="d-flex" method="get" role="search">
+                {% csrf_token %}
+                <input aria-label="Search" class="form-control me-2" name="q" placeholder="Search"
+                       type="search">
+                <button class="btn btn-outline-light " type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <p class="my_search_text text-center">
+        <b>{{query}}</b>
+    </p>
+</div>
+<div class="container-fluid">
+    <div class="row mx-auto">
+        {% for product in products %}
+        <div class="  col-sm-12 col-md-6 col-lg-4 col-xl-3  mb-5">
+            <div class="card-group ">
+                <div class="card card_bd text-white mt-5">
+                    <div class="card-body  card_bd text-dark">
+                        <a href="{{product.get_url}}"><img alt="" class="card card_bdd" src="{{product.image.url}}"
+                                                           style=" height: 250px;    width: -webkit-fill-available;"></a>
+                        <div class=" text-center  ">
+                            <div class="card-title"><h4>{{product.name}}</a></h4></div>
+                            <div class="">
+                                <p class="">{{product.price}}$</p>
+                                <a class="btn btn-dark cart_t" href="{% url 'cart:add_cart' product.id %}">ADD TO CART</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="mx-auto">
+            <p class="text-center my_search_text">0 results found</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
